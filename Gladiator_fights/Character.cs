@@ -4,54 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gladiator_Fights
+namespace Gladiator_fights
 {
     class Character
     {
         private int _health;
-        private int _damage;
-        private string _name;
-        public Character(string name, int h, int d)
+        public int _damage;
+        Random rnd = new Random();
+        public Character()
         {
-            _name = name;
-            _health = h;
-            _damage = d;
+            _health = rnd.Next(100, 300);
+            _damage = rnd.Next(20, 40);
         }
-        public static void Attack1(Character r, Character t)
+        public static void Attack1(Character first, Character second)
         {
-            Characteristic(r, t);
-            while (t._health > 0 && r._health > 0)
+            Characteristic(first, second);
+            while (first._health > 0 && first._health > 0)
             {
-                Kick1(r, t);
-                if (r._health < 0) continue;
-                Kick2(r, t);
+                TakeDamage(first, second);
+                if (first._health > 0)
+                    TakeDamage(first, second);
+                else continue;
             }
-            Message(r, t);
+            Winner(first, second);
         }
-        private static void Characteristic(Character r, Character t)
+        public virtual void TakeDamage(Character first, Character second)
         {
-            Console.WriteLine(r._name + " Здоровье: " + r._health + " Урон: " + r._damage);
-            Console.WriteLine(t._name + " Здоровье: " + t._health + " Урон: " + t._damage);
+            first._health = first._health - second._damage;
+            Console.WriteLine("Персонаж " + second + " наносит урон персонажу " + first);
+            Console.WriteLine(second + ": здоровье: " + second);
+            Console.WriteLine(first + ": здоровье: " + first);
         }
-        private static void Message(Character r, Character t)
+        private static void Winner(Character first, Character second)
         {
-            if (r._health < 0)
-                Console.WriteLine("Победил " + t._name);
-            else Console.WriteLine("Победил " + r._name);
+            if (first._health <= 0)
+                Console.WriteLine(second + " победил!!!");
+            else Console.WriteLine(first + " победил!!!");
         }
-        private static void Kick1(Character r, Character t)
+        private static void Characteristic(Character first, Character second)
         {
-            r._health = r._health - t._damage;
-            Console.WriteLine("Персонаж " + t._name + " наносит урон персонажу " + r._name);
-            Console.WriteLine(t._name + ": здоровье: " + t._health);
-            Console.WriteLine(r._name + ": здоровье: " + r._health);
-        }
-        private static void Kick2(Character r, Character t)
-        {
-            t._health = t._health - r._damage;
-            Console.WriteLine("Персонаж " + r._name + " наносит урон персонажу " + t._name);
-            Console.WriteLine(t._name + ": здоровье: " + t._health);
-            Console.WriteLine(r._name + ": здоровье: " + r._health);
+            Console.WriteLine(first + " Здоровье: " + first._health + " Урон: " + first._damage );
+            Console.WriteLine(t + " Здоровье: " + second._health + " Урон: " + second._damage);
         }
     }
 }

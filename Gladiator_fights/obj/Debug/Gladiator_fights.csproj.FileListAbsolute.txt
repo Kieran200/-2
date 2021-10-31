@@ -1,0 +1,2 @@
+C:\Users\Владелец\source\repos\Gladiator_fights\Gladiator_fights\obj\Debug\Gladiator_fights.csprojAssemblyReference.cache
+C:\Users\Владелец\source\repos\Gladiator_fights\Gladiator_fights\obj\Debug\Gladiator_fights.csproj.CoreCompileInputs.cache

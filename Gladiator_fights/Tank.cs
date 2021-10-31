@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gladiator_fights
 {
-    class Program
+    class Tank : Character
     {
-        static void Main(string[] args)
-        {
-            Character c = new Character();
+       public Tank : base(name)
 
-        }
     }
 }

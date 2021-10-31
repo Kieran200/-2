@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gladiator_fights
 {
-    class Program
+    class Cleric : Character
     {
-        static void Main(string[] args)
-        {
-            Character c = new Character();
 
-        }
     }
 }
