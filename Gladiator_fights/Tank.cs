@@ -8,7 +8,6 @@ namespace Gladiator_fights
 {
     class Tank : Character
     {
-        bool _defend;
         Random rnd = new Random();
 
         public Tank (string name, int health, int damage): base (name, health, damage)

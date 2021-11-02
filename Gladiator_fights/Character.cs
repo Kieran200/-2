@@ -20,6 +20,8 @@ namespace Gladiator_fights
             set
             {
                 _health = value;
+                if (Health < 0)
+                    _health = 0;
             }
         }
         public Character(string name, int health, int damage)

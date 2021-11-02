@@ -10,13 +10,13 @@ namespace Gladiator_fights
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
+            Console.WriteLine("Введите имя персонажа Cleric:");
             string name1 = Console.ReadLine();
-            Console.WriteLine();
+            Console.WriteLine("Введите имя персонажа Tank: ");
             string name2 = Console.ReadLine();
             Random rnd = new Random();
 
-            Character char1 = new Character(name1, rnd.Next(100, 300), rnd.Next(20, 40));
+            Cleric char1 = new Cleric(name1, rnd.Next(100, 300), rnd.Next(20, 40));
             Tank tank = new Tank(name2, rnd.Next(100, 300), rnd.Next(20, 40));
             tank.Characteristic();
             char1.Characteristic();
@@ -42,8 +42,6 @@ namespace Gladiator_fights
                     Console.WriteLine(second._name + " победил!!!");
                 else Console.WriteLine(first._name + " победил!!!");
             }
-
-
         }
     }
 }
